@@ -49,7 +49,7 @@ function QuotePage(props) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container, backgroundColor: props.backgroundColor }}>
       <AppHeader>
         <View style={styles.headerView}>
           <TouchableOpacity onPress={() => props.navigation.navigate('AboutPage')}>
