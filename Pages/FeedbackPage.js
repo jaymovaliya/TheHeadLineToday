@@ -5,17 +5,38 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  ToastAndroid,
+  Dimensions,
+  StatusBar
 } from 'react-native';
-import { AppHeader, Button, TextArea } from '../components';
+import { AppHeader, Button, TextArea, Toast } from '../CoreUI';
 import LeftArrow from '../assets/leftarrow.svg';
+const statusBarHeight = StatusBar.currentHeight;
+const windowHeight = Dimensions.get('window').height - (statusBarHeight > 25 ? 0 : statusBarHeight);
 
 function FeedbackPage(props){
   const [value, onChangeText] = useState('');
+  const [ toast, setToast ] = useState(false);
+  const onBtnClick = () => {
+    setToast(true);
+    setTimeout(()=>{
+      setToast(false);
+    },1000)
+    props.navigation.navigate('AboutPage');
+  }
+
+
   return(
     <View style={{...styles.container, backgroundColor: props.backgroundColor }}>
+      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#F2F2F2"/>
+      {
+        toast && (<Toast
+          message={"Thanks for your Feedback"}
+        />)
+      }
       <AppHeader>
-        <View style={styles.headerView}>
+        <View style={{...styles.headerView, backgroundColor: props.headerBackgroundColor}}>
           <TouchableOpacity onPress={() => props.navigation.navigate('AboutPage')}>
             <View>
               <LeftArrow/>
@@ -31,10 +52,15 @@ function FeedbackPage(props){
         <TextArea
           value={value}
           onChangeText={(text) => {onChangeText(text)}}
+          backgroundColor={props.headerBackgroundColor}
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button text={"Submit"}></Button>
+        <Button
+          text={"Submit"}
+          onBtnClick={onBtnClick}
+          >
+        </Button>
       </View>
     </View>
   )
@@ -56,8 +82,8 @@ const styles = StyleSheet.create({
     paddingRight: 20
   },
   pageTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'RobotoSlab-Medium',
+    fontSize: windowHeight*0.025,
     marginLeft: -20
   },
   textAreaContainer: {

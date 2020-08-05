@@ -6,13 +6,14 @@ function TextArea(props) {
   return (
     <View style={styles.container}>
       <TextInput
-        style={{...styles.textArea, width: windowWidth*0.85 }}
+        style={{...styles.textArea, width: windowWidth*0.85, backgroundColor: props.backgroundColor}}
         onChangeText={text => props.onChangeText(text)}
         value={props.value}
         placeholder={"Write your feedback or message"}
         placeholderTextColor={"#000000"}
+        textAlignVertical={'top'}
         multiline
-        numberOfLines={5}
+        numberOfLines={7}
       />
     </View>
   );
@@ -20,14 +21,11 @@ function TextArea(props) {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
+    display: 'flex'
   },
   textArea: {
-    borderColor: 'rgba(0,0,0,0.14)',
-    borderWidth: 1,
     padding: 15,
+    elevation: 1
   }
 });
 

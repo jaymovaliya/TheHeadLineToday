@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "223738430760",
+    "firebase_url": "https://the-headline-today.firebaseio.com",
+    "project_id": "the-headline-today",
+    "storage_bucket": "the-headline-today.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:223738430760:android:ea0092569e5425c7517c1d",
+        "android_client_info": {
+          "package_name": "com.theheadlinetoday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "223738430760-f0e3atsa45hih3mbjg2sf3slmisqp4u1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theheadlinetoday",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "223738430760-rs610386m3su11gjquoolgjt5k9vqq25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJU9DnUPKv1l0U9Q4FR6nO-Jm2RtlkwuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "223738430760-rs610386m3su11gjquoolgjt5k9vqq25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
