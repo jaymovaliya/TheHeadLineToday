@@ -70,7 +70,7 @@ const quotes = [
   }
 ]
 
-function AdminPage(props){
+function AdminPage(props) {
   const [status, setStatus] = useState('pending');
   const [quotes, setQuotes] = useState([
     {
@@ -142,12 +142,12 @@ function AdminPage(props){
   }
 
   const approveQuotes = () => {
-    if(status === 'pending'){
+    if (status === 'pending') {
       const filteredQuotes = quotes.filter(d => d.status === 'pending');
       const approveIds = [];
       const deleteIds = [];
       filteredQuotes.forEach((item, i) => {
-        if(item.delete)
+        if (item.delete)
           deleteIds.push(item.id);
         else
           approveIds.push(item.id);
@@ -164,9 +164,9 @@ function AdminPage(props){
 
   }
 
-  return(
-    <View style={{...styles.container, backgroundColor: props.backgroundColor }}>
-      <AdminHeader/>
+  return (
+    <View style={{ ...styles.container, backgroundColor: props.backgroundColor }}>
+      <AdminHeader navigation={props.navigation} />
       <AdminSwitch
         status={status}
         setStatus={setStatus}
