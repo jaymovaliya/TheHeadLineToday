@@ -1,19 +1,20 @@
 import React, { memo, useState } from 'react';
-import {Text, View, StyleSheet, TextInput, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Dimensions } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 
 function TextArea(props) {
   return (
     <View style={styles.container}>
       <TextInput
-        style={{...styles.textArea, width: windowWidth*0.85, backgroundColor: props.backgroundColor}}
+        style={{ ...styles.textArea, width: windowWidth * 0.85, backgroundColor: props.backgroundColor, ...props.style }}
         onChangeText={text => props.onChangeText(text)}
         value={props.value}
-        placeholder={"Write your feedback or message"}
+        placeholder={props.placeholder}
         placeholderTextColor={"#000000"}
         textAlignVertical={'top'}
         multiline
-        numberOfLines={7}
+        numberOfLines={props.numberOfLines}
+        returnKeyType={props.returnKeyType ? props.returnKeyType : "default"}
       />
     </View>
   );
@@ -21,7 +22,7 @@ function TextArea(props) {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex'
+    display: 'flex',
   },
   textArea: {
     padding: 15,
